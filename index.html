@@ -1,706 +1,929 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anne Caroline Silva — Desenvolvedora & Entusiasta em Visão Computacional</title>
+<meta name="description" content="Portfólio de Anne Caroline Silva, desenvolvedora Python e entusiasta em visão computacional e astronomia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  :root{
+    --void:#080b1f;
+    --void-2:#0e1230;
+    --panel:#12173a;
+    --panel-border:#232a5c;
+    --cyan:#4deeea;
+    --magenta:#f92aad;
+    --violet:#8b6bf2;
+    --star:#eef1ff;
+    --dust:#8891b8;
+    --dust-dim:#5c6491;
+    --success:#4deeea;
+    --maxw:1120px;
+  }
 
-  <title>MyResume Bootstrap Template - Index</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--void);
+    color:var(--star);
+    font-family:'Space Grotesk', sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    overflow-x:hidden;
+  }
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  h1,h2,h3,h4{
+    font-family:'Orbitron', sans-serif;
+    margin:0;
+    letter-spacing:.02em;
+  }
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  .mono{font-family:'JetBrains Mono', monospace;}
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  a{color:var(--cyan); text-decoration:none;}
+  a:hover{color:var(--magenta);}
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  ::selection{background:var(--magenta); color:var(--void);}
 
-  <!-- =======================================================
-  * Template Name: MyResume - v4.2.0
-  * Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  :focus-visible{
+    outline:2px solid var(--cyan);
+    outline-offset:3px;
+  }
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:.72rem;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    color:var(--cyan);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px; height:1px;
+    background:linear-gradient(90deg,var(--cyan),transparent);
+  }
+
+  section{
+    position:relative;
+    padding:110px 0;
+    border-top:1px solid var(--panel-border);
+  }
+  section .wrap{position:relative; z-index:2;}
+
+  /* orbit divider ornament between sections */
+  section::before{
+    content:"";
+    position:absolute; top:-1px; left:50%;
+    width:120px; height:2px;
+    transform:translateX(-50%);
+    background:linear-gradient(90deg, transparent, var(--cyan), var(--magenta), transparent);
+    filter:drop-shadow(0 0 6px var(--cyan));
+  }
+
+  .section-title{
+    font-size:clamp(1.7rem, 3vw, 2.4rem);
+    margin-bottom:44px;
+    color:var(--star);
+  }
+  .section-title span{
+    background:linear-gradient(90deg, var(--cyan), var(--violet) 55%, var(--magenta));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    backdrop-filter:blur(10px);
+    background:rgba(8,11,31,.72);
+    border-bottom:1px solid var(--panel-border);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:70px;
+  }
+  .brand{
+    font-family:'Orbitron', sans-serif;
+    font-weight:800;
+    font-size:1rem;
+    letter-spacing:.12em;
+    color:var(--star);
+  }
+  .brand em{
+    font-style:normal;
+    color:var(--cyan);
+  }
+  .nav-links{
+    list-style:none; display:flex; gap:2px;
+    margin:0; padding:0;
+    font-family:'JetBrains Mono', monospace;
+    font-size:.78rem;
+    letter-spacing:.06em;
+  }
+  .nav-links a{
+    color:var(--dust);
+    padding:10px 14px;
+    display:inline-block;
+    position:relative;
+  }
+  .nav-links a::after{
+    content:"";
+    position:absolute; left:14px; right:14px; bottom:6px;
+    height:1px; background:var(--cyan);
+    transform:scaleX(0); transform-origin:left;
+    transition:transform .25s ease;
+    box-shadow:0 0 8px var(--cyan);
+  }
+  .nav-links a:hover{color:var(--star);}
+  .nav-links a:hover::after{transform:scaleX(1);}
+
+  .nav-toggle{
+    display:none;
+    background:none; border:1px solid var(--panel-border);
+    color:var(--star); width:40px; height:40px; border-radius:4px;
+    font-size:1.1rem; cursor:pointer;
+  }
+
+  @media (max-width:820px){
+    .nav-toggle{display:block;}
+    .nav-links{
+      position:fixed; top:70px; left:0; right:0;
+      flex-direction:column; gap:0;
+      background:var(--void-2);
+      border-bottom:1px solid var(--panel-border);
+      max-height:0; overflow:hidden;
+      transition:max-height .3s ease;
+    }
+    .nav-links.open{max-height:400px;}
+    .nav-links a{padding:16px 28px; border-top:1px solid var(--panel-border);}
+  }
+
+  /* ---------- HERO ---------- */
+  #hero{
+    position:relative;
+    min-height:100vh;
+    display:flex; align-items:center;
+    border-top:none;
+    overflow:hidden;
+  }
+  #hero::before{display:none;}
+  #starfield{
+    position:absolute; inset:0;
+    z-index:0;
+  }
+  .hero-inner{
+    position:relative; z-index:2;
+    padding-top:70px;
+    text-align:center;
+    width:100%;
+  }
+  .hero-tag{
+    font-family:'JetBrains Mono', monospace;
+    color:var(--cyan);
+    font-size:.85rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    margin-bottom:22px;
+    text-shadow:0 0 12px rgba(77,238,234,.6);
+  }
+  .hero-name{
+    font-size:clamp(2.6rem, 8vw, 5.2rem);
+    font-weight:900;
+    line-height:1.05;
+    background:linear-gradient(90deg,#fff 0%, var(--cyan) 45%, var(--magenta) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    text-shadow:0 0 40px rgba(77,238,234,.25);
+    margin-bottom:22px;
+  }
+  .hero-role{
+    font-family:'JetBrains Mono', monospace;
+    font-size:clamp(.95rem, 1.6vw, 1.15rem);
+    color:var(--dust);
+    max-width:560px;
+    margin:0 auto 34px;
+  }
+  .hero-role .cursor{
+    display:inline-block; width:9px; height:1.1em; background:var(--magenta);
+    margin-left:2px; vertical-align:middle;
+    animation:blink 1s steps(1) infinite;
+    box-shadow:0 0 8px var(--magenta);
+  }
+  @keyframes blink{50%{opacity:0;}}
+
+  .social-row{
+    display:flex; gap:18px; justify-content:center; margin-bottom:56px;
+  }
+  .social-row a{
+    width:42px; height:42px; border:1px solid var(--panel-border);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--dust);
+    transition:all .25s ease;
+  }
+  .social-row a:hover{
+    color:var(--void);
+    background:var(--cyan);
+    border-color:var(--cyan);
+    box-shadow:0 0 18px rgba(77,238,234,.65);
+  }
+
+  .scroll-cue{
+    display:flex; flex-direction:column; align-items:center; gap:8px;
+    color:var(--dust-dim);
+    font-family:'JetBrains Mono', monospace;
+    font-size:.7rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    animation:floaty 2.4s ease-in-out infinite;
+  }
+  .scroll-cue i{color:var(--cyan);}
+  @keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(8px);}}
+
+  /* ---------- REVEAL ---------- */
+  .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.visible{opacity:1; transform:translateY(0);}
+
+  /* ---------- ABOUT ---------- */
+  #about .wrap{
+    display:grid; grid-template-columns:280px 1fr; gap:64px; align-items:start;
+  }
+  .portrait-orbit{
+    position:relative;
+    width:240px; height:240px;
+    margin:0 auto;
+  }
+  .portrait-orbit .ring{
+    position:absolute; inset:-18px;
+    border:1px dashed rgba(77,238,234,.35);
+    border-radius:50%;
+    animation:spin 40s linear infinite;
+  }
+  .portrait-orbit .ring.r2{
+    inset:-34px;
+    border-color:rgba(249,42,173,.25);
+    animation-duration:60s;
+    animation-direction:reverse;
+  }
+  .portrait-orbit .ring .dot{
+    position:absolute; top:-4px; left:50%;
+    width:8px; height:8px; margin-left:-4px;
+    background:var(--cyan); border-radius:50%;
+    box-shadow:0 0 10px 2px var(--cyan);
+  }
+  .portrait-orbit .ring.r2 .dot{background:var(--magenta); box-shadow:0 0 10px 2px var(--magenta);}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .portrait-orbit img{
+    width:100%; height:100%; object-fit:cover;
+    border-radius:50%;
+    border:2px solid var(--panel-border);
+    box-shadow:0 0 40px rgba(139,107,242,.35);
+  }
+
+  .about-bio p{color:var(--dust); margin:0 0 16px;}
+  .telemetry{
+    margin-top:32px;
+    display:grid; grid-template-columns:1fr 1fr; gap:14px 32px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:.85rem;
+  }
+  .telemetry div{
+    padding:10px 0;
+    border-bottom:1px solid var(--panel-border);
+    display:flex; justify-content:space-between; gap:12px;
+  }
+  .telemetry span:first-child{color:var(--dust-dim); text-transform:uppercase; letter-spacing:.08em; font-size:.72rem;}
+  .telemetry span:last-child{color:var(--star);}
+
+  @media (max-width:760px){
+    #about .wrap{grid-template-columns:1fr; text-align:center;}
+    .telemetry{grid-template-columns:1fr;}
+  }
+
+  /* ---------- INTERESTS ---------- */
+  .constellation{
+    display:flex; flex-wrap:wrap; gap:14px;
+  }
+  .node{
+    display:flex; align-items:center; gap:8px;
+    padding:10px 18px;
+    border:1px solid var(--panel-border);
+    border-radius:999px;
+    background:var(--panel);
+    font-size:.88rem;
+    color:var(--dust);
+    transition:all .25s ease;
+  }
+  .node::before{
+    content:"";
+    width:6px; height:6px; border-radius:50%;
+    background:var(--cyan);
+    box-shadow:0 0 8px var(--cyan);
+  }
+  .node:hover{
+    color:var(--star);
+    border-color:var(--cyan);
+    transform:translateY(-2px);
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{display:grid; gap:22px;}
+  .skill-row{display:grid; grid-template-columns:170px 1fr 52px; gap:16px; align-items:center;}
+  .skill-name{font-size:.9rem; color:var(--star);}
+  .skill-track{
+    height:8px; border-radius:4px;
+    background:var(--panel);
+    border:1px solid var(--panel-border);
+    overflow:hidden;
+  }
+  .skill-fill{
+    height:100%; width:0%;
+    border-radius:4px;
+    background:linear-gradient(90deg, var(--cyan), var(--violet), var(--magenta));
+    box-shadow:0 0 10px rgba(77,238,234,.5);
+    transition:width 1.4s cubic-bezier(.16,1,.3,1);
+  }
+  .skill-pct{
+    font-family:'JetBrains Mono', monospace;
+    font-size:.78rem; color:var(--dust); text-align:right;
+  }
+  @media (max-width:600px){
+    .skill-row{grid-template-columns:110px 1fr 40px; gap:10px;}
+  }
+
+  /* ---------- CARDS (cursos) ---------- */
+  .card-grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+  }
+  .card{
+    background:var(--panel);
+    border:1px solid var(--panel-border);
+    border-radius:10px;
+    padding:26px;
+    transition:border-color .25s ease, transform .25s ease;
+  }
+  .card:hover{border-color:var(--cyan); transform:translateY(-4px);}
+  .card h3{font-size:1rem; margin-bottom:8px; color:var(--star); font-family:'Space Grotesk',sans-serif; font-weight:700;}
+  .card .meta{
+    font-family:'JetBrains Mono', monospace;
+    font-size:.75rem; color:var(--dust-dim);
+    margin-bottom:14px; display:block;
+  }
+  .card a.link{
+    font-family:'JetBrains Mono', monospace;
+    font-size:.78rem;
+  }
+  .all-certs{margin-top:24px; display:inline-block; font-family:'JetBrains Mono',monospace; font-size:.85rem;}
+
+  /* ---------- PUBLICATIONS ---------- */
+  .pub-list{display:flex; flex-direction:column; gap:0;}
+  .pub{
+    padding:26px 0;
+    border-bottom:1px solid var(--panel-border);
+  }
+  .pub:first-child{padding-top:0;}
+  .pub h3{font-size:1.05rem; font-weight:700; font-family:'Space Grotesk',sans-serif; margin-bottom:6px;}
+  .pub .meta{
+    font-family:'JetBrains Mono', monospace; font-size:.75rem;
+    color:var(--dust-dim); text-transform:uppercase; letter-spacing:.05em;
+    margin-bottom:10px; display:block;
+  }
+  .pub details summary{
+    cursor:pointer; color:var(--cyan);
+    font-family:'JetBrains Mono', monospace; font-size:.78rem;
+    letter-spacing:.04em;
+    list-style:none;
+  }
+  .pub details summary::-webkit-details-marker{display:none;}
+  .pub details summary::before{content:"▸ ";}
+  .pub details[open] summary::before{content:"▾ ";}
+  .pub details p{color:var(--dust); margin-top:12px; font-size:.92rem;}
+
+  /* ---------- TIMELINE (experiência) ---------- */
+  .timeline{
+    position:relative;
+    padding-left:32px;
+    border-left:1px solid var(--panel-border);
+  }
+  .timeline::before{
+    content:"";
+    position:absolute; left:-1px; top:0; bottom:0; width:1px;
+    background:linear-gradient(180deg, var(--cyan), var(--violet), var(--magenta));
+    opacity:.5;
+  }
+  .tl-item{position:relative; padding-bottom:44px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:"";
+    position:absolute; left:-37px; top:4px;
+    width:11px; height:11px; border-radius:50%;
+    background:var(--void);
+    border:2px solid var(--cyan);
+    box-shadow:0 0 12px rgba(77,238,234,.7);
+  }
+  .tl-date{
+    font-family:'JetBrains Mono', monospace; font-size:.75rem;
+    color:var(--cyan); text-transform:uppercase; letter-spacing:.08em;
+    margin-bottom:4px; display:block;
+  }
+  .tl-item h3{font-size:1.05rem; margin-bottom:2px;}
+  .tl-item .place{
+    display:block; color:var(--dust-dim); font-size:.85rem; margin-bottom:12px;
+    font-family:'JetBrains Mono', monospace;
+  }
+  .tl-item ul{margin:0; padding-left:18px; color:var(--dust);}
+  .tl-item li{margin-bottom:6px;}
+  .timeline-intro{color:var(--dust); max-width:680px; margin-bottom:48px;}
+
+  /* ---------- PORTFOLIO ---------- */
+  .radar{
+    width:120px; height:120px; border-radius:50%;
+    border:1px solid var(--panel-border);
+    position:relative; margin:0 auto 28px;
+    background:radial-gradient(circle, rgba(77,238,234,.08), transparent 70%);
+    overflow:hidden;
+  }
+  .radar::before{
+    content:"";
+    position:absolute; inset:0;
+    background:conic-gradient(from 0deg, rgba(77,238,234,.55), transparent 40%);
+    animation:sweep 3s linear infinite;
+  }
+  @keyframes sweep{to{transform:rotate(360deg);}}
+  #portfolio{text-align:center;}
+  #portfolio p{color:var(--dust); font-family:'JetBrains Mono',monospace; font-size:.9rem;}
+
+  /* ---------- CONTACT ---------- */
+  .contact-panel{
+    display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px;
+    margin-bottom:40px;
+  }
+  .contact-item{
+    background:var(--panel); border:1px solid var(--panel-border);
+    border-radius:10px; padding:22px;
+  }
+  .contact-item .label{
+    font-family:'JetBrains Mono', monospace; font-size:.72rem;
+    color:var(--dust-dim); text-transform:uppercase; letter-spacing:.1em;
+    display:block; margin-bottom:8px;
+  }
+  .contact-item .value{color:var(--star); font-size:.95rem;}
+  @media (max-width:700px){.contact-panel{grid-template-columns:1fr;}}
+
+  footer{
+    padding:36px 0 48px;
+    text-align:center;
+    color:var(--dust-dim);
+    font-family:'JetBrains Mono', monospace;
+    font-size:.78rem;
+    border-top:1px solid var(--panel-border);
+  }
+  footer .social-row{margin-top:18px; margin-bottom:0;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important;}
+    html{scroll-behavior:auto;}
+  }
+</style>
 </head>
-
 <body>
 
-  <!-- ======= Mobile nav toggle button ======= -->
-  <!-- <button type="button" class="mobile-nav-toggle d-xl-none"><i class="bi bi-list mobile-nav-toggle"></i></button> -->
-  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
-  
-  
-  <!-- ======= Header ======= -->
-  <header id="header" class="d-flex flex-column justify-content-center">
-    <nav id="navbar" class="navbar nav-menu">
-      <ul>
-        <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-        <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Sobre</span></a></li>
-        <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Experiências Profissionais</span></a></li>
-        <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
-        <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contato</span></a></li>
-      </ul>
-    </nav><!-- .nav-menu -->
-  </header><!-- End Header -->
+<header>
+  <nav class="wrap">
+    <div class="brand">ANNE<em>.</em>SYS</div>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">Sobre</a></li>
+      <li><a href="#resume">Experiência</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contato</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center">   
-    <div class="container" data-aos="zoom-in" data-aos-delay="100">
-      <h1>Anne Caroline Silva</h1>
-      <p>Hello world!</p>
-      <div class="social-links">
-        <a href="https://twitter.com/annecaroli_" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="https://www.facebook.com/annecarolinesil/" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="https://www.instagram.com/_annecaroli_/" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/annecaroli/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-        <a href="https://github.com/annecaroli/" class="github"><i class="bx bxl-github"></i></a>
+<section id="hero">
+  <canvas id="starfield"></canvas>
+  <div class="wrap hero-inner">
+    <div class="hero-tag">// coordenadas: vitória, es — brasil</div>
+    <h1 class="hero-name">Anne Caroline<br>Silva</h1>
+    <p class="hero-role">Desenvolvedora Python júnior &amp; entusiasta em visão computacional<span class="cursor"></span><br>observando código e constelações desde sempre.</p>
+    <div class="social-row">
+      <a href="https://twitter.com/annecaroli_" target="_blank" rel="noopener" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+      <a href="https://www.facebook.com/annecarolinesil/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/_annecaroli_/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/annecaroli/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="https://github.com/annecaroli/" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+    </div>
+    <div class="scroll-cue"><span>role para explorar</span><i class="fa-solid fa-chevron-down"></i></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="portrait-orbit">
+      <div class="ring r1"><span class="dot"></span></div>
+      <div class="ring r2"><span class="dot"></span></div>
+      <img src="https://annecaroli.github.io/assets/img/profile-img.jpg" alt="Foto de Anne Caroline Silva" loading="lazy">
+    </div>
+    <div class="about-bio reveal">
+      <div class="eyebrow">Sobre</div>
+      <h2 class="section-title">Graduanda em <span>Sistemas de Informação</span></h2>
+      <p>Graduanda em Sistemas de Informação pelo Instituto Federal do Espírito Santo, campus Serra. Desenvolvedora Python júnior e entusiasta em visão computacional.</p>
+      <p>Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis. Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque. Aliquid amet quidem ut quaerat cupiditate. Ab et eum qui repellendus omnis culpa magni laudantium dolores.</p>
+      <div class="telemetry">
+        <div><span>Aniversário</span><span>02/12/1992</span></div>
+        <div><span>Cidade</span><span>Vitória</span></div>
+        <div><span>Email</span><span>carolinesilva4@hotmail.com</span></div>
+        <div><span>Idade</span><span>28</span></div>
+        <div><span>Grau</span><span>Bacharelado</span></div>
+        <div><span>Freelance</span><span>Disponível</span></div>
       </div>
     </div>
-  </section><!-- End Hero -->
+  </div>
+</section>
 
-  <!-- ======= Main Section ======= -->
-  <main id="main">
+<section id="interests">
+  <div class="wrap reveal">
+    <div class="eyebrow">Mapa de interesses</div>
+    <h2 class="section-title">O que orbita minha <span>curiosidade</span></h2>
+    <div class="constellation">
+      <span class="node">Inteligência artificial</span>
+      <span class="node">Aprendizagem de máquina</span>
+      <span class="node">Empreendedorismo</span>
+      <span class="node">Desenvolvimento Web</span>
+      <span class="node">Inteligência emocional</span>
+      <span class="node">Astronomia</span>
+      <span class="node">Divulgação científica</span>
+      <span class="node">Liderança</span>
+    </div>
+  </div>
+</section>
 
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
+<section id="skills">
+  <div class="wrap reveal">
+    <div class="eyebrow">Habilidades</div>
+    <h2 class="section-title">Sinais em <span>frequência</span></h2>
+    <div class="skills-grid">
+      <div class="skill-row"><span class="skill-name">Python</span><div class="skill-track"><div class="skill-fill" data-pct="100"></div></div><span class="skill-pct">100%</span></div>
+      <div class="skill-row"><span class="skill-name">HTML/CSS</span><div class="skill-track"><div class="skill-fill" data-pct="70"></div></div><span class="skill-pct">70%</span></div>
+      <div class="skill-row"><span class="skill-name">Visão computacional</span><div class="skill-track"><div class="skill-fill" data-pct="75"></div></div><span class="skill-pct">75%</span></div>
+      <div class="skill-row"><span class="skill-name">Power BI</span><div class="skill-track"><div class="skill-fill" data-pct="60"></div></div><span class="skill-pct">60%</span></div>
+      <div class="skill-row"><span class="skill-name">Scrum</span><div class="skill-track"><div class="skill-fill" data-pct="100"></div></div><span class="skill-pct">100%</span></div>
+      <div class="skill-row"><span class="skill-name">JavaScript</span><div class="skill-track"><div class="skill-fill" data-pct="50"></div></div><span class="skill-pct">50%</span></div>
+      <div class="skill-row"><span class="skill-name">Angular</span><div class="skill-track"><div class="skill-fill" data-pct="30"></div></div><span class="skill-pct">30%</span></div>
+      <div class="skill-row"><span class="skill-name">Node</span><div class="skill-track"><div class="skill-fill" data-pct="10"></div></div><span class="skill-pct">10%</span></div>
+      <div class="skill-row"><span class="skill-name">Pentaho DI</span><div class="skill-track"><div class="skill-fill" data-pct="60"></div></div><span class="skill-pct">60%</span></div>
+      <div class="skill-row"><span class="skill-name">Git</span><div class="skill-track"><div class="skill-fill" data-pct="80"></div></div><span class="skill-pct">80%</span></div>
+    </div>
+  </div>
+</section>
 
-        <div class="section-title">
-          <h2>Sobre</h2>
-          <p>Graduanda em Sistemas de Informação pelo Instituto Federal do Espírito Santo campus Serra</p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-4">
-            <img src="assets/img/profile-img.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-8 pt-4 pt-lg-0 content">
-            <h3>Desenvolvedora python junior &amp; entusiasta em visão computacional.</h3>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Aniversário:</strong> <span>2/12/1992</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Cidade:</strong> <span>Vitória</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>carolinesilva4@hotmail.com</span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Idade:</strong> <span>28</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Grau:</strong> <span>Bacharelado</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Disponível</span></li>
-                </ul>
-              </div>
-            </div>
-            <p>
-              Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis.
-              Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque. Aliquid amet quidem ut quaerat cupiditate. Ab et eum qui repellendus omnis culpa magni laudantium dolores.
-            </p>
-          </div>
-        </div>
-
+<section id="courses">
+  <div class="wrap reveal">
+    <div class="eyebrow">Registro de bordo</div>
+    <h2 class="section-title">Cursos &amp; <span>certificações</span></h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Inteligência Artificial</h3>
+        <span class="meta">Hacking Health Espírito Santo · 2019</span>
+        <a class="link" href="https://onedrive.live.com/?cid=AE77A7DA2CCC6CA7&id=AE77A7DA2CCC6CA7%2150574&parId=AE77A7DA2CCC6CA7%2126238&o=OneUp" target="_blank" rel="noopener">Ver certificado ↗</a>
       </div>
-    </section><!-- End About Section -->
-
-    <!-- ======= Interests Section ======= -->
-    <section id="inter" class="facts">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Interesses</h2>
-        </div>
-
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="count-box">
-              <i class="bi bi-cpu"></i>
-              <p>Inteligência artificial</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="count-box">
-              <i class="bi bi-gear"></i>
-              <p>Aprendizagem de máquina</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="count-box">
-              <i class="bi bi-lightbulb"></i>
-              <p>Empreendedorismo</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="count-box">
-              <i class="bi bi-code"></i>
-              <p>Desenvolvimento Web</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="count-box">
-              <i class="bi bi-emoji-smile"></i>
-              <p>Inteligência emocional</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
-            <div class="count-box">
-              <i class="bi bi-star"></i>
-              <p>Astronomia</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-            <div class="count-box">
-              <i class="bi bi-megaphone"></i>
-              <p>Divulgação científica</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-            <div class="count-box">
-              <i class="bi bi-award"></i>
-              <p>Liderança</p>
-            </div>
-          </div>
-
-        </div>
-
+      <div class="card">
+        <h3>SAP Professional 4.0</h3>
+        <span class="meta">MDL Consulting · 2019</span>
+        <a class="link" href="https://onedrive.live.com/?cid=AE77A7DA2CCC6CA7&id=AE77A7DA2CCC6CA7%2147774&parId=AE77A7DA2CCC6CA7%2126238&o=OneUp" target="_blank" rel="noopener">Ver certificado ↗</a>
       </div>
-    </section><!-- End Interests Section -->
-
-    <!-- ======= Skills Section ======= -->
-    <section id="skills" class="skills section-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Habilidades</h2>
-        </div>
-
-        <div class="row skills-content">
-
-          <div class="col-lg-6">
-
-            <div class="progress">
-              <span class="skill">Python<i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">HTML/CSS<i class="val">70%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Visão computacional<i class="val">75%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Microsoft Power BI<i class="val">60%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Scrum<i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="col-lg-6">
-
-            <div class="progress">
-              <span class="skill">Javascript<i class="val">50%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Angular<i class="val">30%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Node<i class="val">10%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Pentaho Data Integration<i class="val">60%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Git<i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Skills Section -->
-
-    <!-- ======= Course Section ======= -->
-    <section id="inter" class="facts">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Cursos</h2>
-        </div>
-
-        <div class="row">
-
-          <div class="resume-item">
-            <h4>Inteligência Artificial</h4>
-            <p><em>Hacking Health Espírito Santo, 2019</em></p>
-            <a href="https://onedrive.live.com/?cid=AE77A7DA2CCC6CA7&id=AE77A7DA2CCC6CA7%2150574&parId=AE77A7DA2CCC6CA7%2126238&o=OneUp">Certificado</a><br><br>
-          </div>
-
-          <div class="resume-item">
-            <h4>SAP Professional 4.0</h4>
-            <p><em>MDL Consulting, 2019</em></p>
-            <a href="https://onedrive.live.com/?cid=AE77A7DA2CCC6CA7&id=AE77A7DA2CCC6CA7%2147774&parId=AE77A7DA2CCC6CA7%2126238&o=OneUp">Certificado</a><br><br>
-          </div>
-
-          <div class="resume-item">
-            <h4>Curso  de  Pré-Incubaçãopara Empreendedores – Modalidade Competêcias Empreendedoras</h4>
-            <p><em>IFES - Campus Serra, 2016</em></p>
-            <a href="https://onedrive.live.com/?cid=AE77A7DA2CCC6CA7&id=AE77A7DA2CCC6CA7%2125745&parId=AE77A7DA2CCC6CA7%2126238&o=OneUp">Certificado</a><br><br>
-          </div>
-
-          <div class="resume-item">
-            <a href="https://1drv.ms/u/s!AqdszCzap3eugcx-LpV0pNJdatUlMg?e=ae0yCh">Todos os certificados</a><br><br>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Course Section -->
-
-    <!-- ======= Publications Section ======= -->
-    <section id="publis" class="facts">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Publicações</h2>
-        </div>
-
-        <div class="resume-item">
-          <h4><a href="https://www.brazilianjournals.com/index.php/BRJD/article/view/2216">Information Visualization Instruments for Ongoing Diagnostic Evaluation of Remote Programming (Republicação)</a></h4>
-          <p><em>BRAZILIAN JOURNAL OF DEVELOPMENT 2019</em></p>
-          <p>Resumo: A aprendizagem de programação é um domínio de conhecimento considerado de difícil aprendizagem. No entanto, embora as dificuldades de ensino e de aprendizagem de programação sejam temáticas recorrentes em discussões acadêmicas, poucas soluções de fato têm sido 
-            desenvolvidas para compreender essas dificuldades e nelas intervir de acordo. Com o objetivo de realizar uma avaliação diagnóstica em uma perspectiva multidimensional a partir da análise minuciosa de códigos-fontes desenvolvidos por alunos e de histórico de 
-            desempenhos, este trabalho apresenta alguns instrumentos de visualização de informação para auxiliar professores no acompanhamento da aprendizagem de seus alunos na prática da programação. Os resultados de aplicação desses instrumentos em uma turma de programação a 
-            distância demonstram que é possível reconhecer sob diferentes variáveis indicadores de dificuldades de aprendizagem e diferentes classes de perfis de alunos.</p>
-        </div>
-
-        <div class="resume-item">
-          <h4><a href="https://www.atenaeditora.com.br/arquivos/ebooks/contradicoes-e-desafios-na-educacao-brasileira-3">Recomendações de Ações e Tecnologias para a Acessibilidade de Surdos em Curso de Programação a Distância (Republicação)</a></h4>
-          <p><em>CONTRADIÇÕES E DESAFIOS NA EDUCAÇÃO BRASILEIRA 3 2019</em></p>
-          <p>Resumo: A programação de computadores é um conhecimento complexo porque para ser aprendido demanda a operacionalização de várias habilidades. No caso de estudantes surdos, o desafio é ainda maior pois a aprendizagem é dificultada pelas limitações no domínio da segunda língua 
-            que impactam diretamente nas habilidades de interpretação textual, na compreensão do problema, na sequenciação lógica de algoritmos, na escrita e na depuração de programas, que são habilidades fundamentais no processo de programação. Considerando os desafios do ensino 
-            de programação para surdos, este trabalho recomenda ações e tecnologias assistivas, propõe a extensão de um curso de programação a distância a partir de vídeos assistivos produzidos dinamicamente no ensino presencial e apresenta relatos de experiências de produção de 
-            vídeos assistivos para um curso de programação a distância.</p>
-        </div>
-
-        <div class="resume-item">
-          <h4><a href="https://sol.sbc.org.br/index.php/wit/article/view/3375">O Moodle de Lovelace: Um Curso a Distância de Python Essencial, Ativo e Prático para Formação de Programadoras</a></h4>
-          <p><em>WOMEN IN INFORMATION TECHNOLOGY 2018</em></p>
-          <p>Resumo: Uma realidade comum de muitas adolescentes e jovens é a dificuldade ou impossibilidade de continuar os estudos após uma gravidez porque assumirão responsabilidades de cuidar de seus filhos em tempo integral ou de trabalhar para sustentá-los. Com o objetivo de oferecer a 
-            essas jovens e a outras estudantes que tenham interesse em aprender programação uma possibilidade de formação profissional a domicílio, desenvolvemos o Moodle de Lovelace, um curso a distância de programação Python com conteúdos essenciais de programação, atividades planejadas 
-            com metodologias ativas e aplicações práticas no mundo real. A contribuição deste curso para atrair as jovens mulheres para a carreira de computação é oferecer a cada uma delas a oportunidade de estudar programação de qualquer lugar e em seu próprio tempo.</p>
-        </div>
-
-        <div class="resume-item">
-          <h4><a href="https://ocs.ifes.edu.br/index.php/Vitoria_03/concefor5/paper/view/4707">Desenvolvendo Habilidades Básicas De Programação Para Promover Acessibilidade De Surdos Em Curso de Programação A Distância</a></h4>
-          <p><em>CONGRESSO REGIONAL DE FORMAÇÃO E EDUCAÇÃO A DISTÂNCIA 2018</em></p>
-          <p>Resumo: As dificuldades  de aprendizagem de programação têm sido alvo de várias pesquisas, o que leva esse campo do saber a ser apontado como uma das disciplinas mais complexas na área de computação, uma vez que requer dos discentes conhecimentos abstratos, que normalmente 
-            não estão presentes em suas rotinas de estudo.  Outro ponto que também é levantado como barreira na aprendizagem por parte dos professores é a defasagem apresentada por uma grande parcela de alunos no que se refere às habilidades básicas para programação como a lógica 
-            e a interpretação textual, as quais se configuram em pilares no processo de ensino e de programação. Transformar esse ensino por meio de uma metodologia híbrida que leve em consideração as especificidades dos canais de aprendizagem tanto oral auditivo para ouvintes, quanto 
-            visual para surdos se mostra um grande desafio pela tarefa de pensar formas de aprendizagem do conteúdo sob outras perspectivas o que provoca inquietações entre professores e pesquisadores tanto no ensino presencial quanto a distância nos últimos anos. Nesse contexto, a 
-            criação de cursos de programação que se apropriem dessas novas metodologias de ensino tornaram-se necessárias em consonância com as novas políticas de ações afirmativas.</p>
-        </div>
-
-        <div class="resume-item">
-          <h4><a href="https://br-ie.org/pub/index.php/wie/article/view/7915">Recomendações de Ações e Tecnologias para a Acessibilidade de Surdos em Curso de Programação a Distância</a></h4>
-          <p><em>WORKSHOP DE INFORMÁTICA NA ESCOLA 2018</em></p>
-          <p>Resumo: A programação de computadores é um conhecimento complexo porque para ser aprendido demanda a operacionalização de várias habilidades. No caso de estudantes surdos, o desafio é ainda maior pois a aprendizagem é dificultada pelas limitações no domínio da segunda língua 
-            que impactam diretamente nas habilidades de interpretação textual, na compreensão do problema, na sequenciação lógica de algoritmos, na escrita e na depuração de programas, que são habilidades fundamentais no processo de programação. Considerando os desafios do ensino 
-            de programação para surdos, este trabalho recomenda ações e tecnologias assistivas, propõe a extensão de um curso de programação a distância a partir de vídeos assistivos produzidos dinamicamente no ensino presencial e apresenta relatos de experiências de produção de 
-            vídeos assistivos para um curso de programação a distância.</p>
-        </div>
-        
-        <div class="resume-item">
-          <h4><a href="https://www.br-ie.org/pub/index.php/wie/article/view/7263">Instrumentos de Visualização da Informação para Avaliação Diagnóstica em Curso de Programação a Distância</a></h4>
-          <p><em>WORKSHOP DE INFORMÁTICA NA ESCOLA 2017</em></p>
-          <p>Resumo: A aprendizagem de programação é um domínio de conhecimento considerado de difícil aprendizagem. No entanto, embora as dificuldades de ensino e de aprendizagem de programação sejam temáticas recorrentes em discussões acadêmicas, poucas soluções de fato têm sido 
-            desenvolvidas para compreender essas dificuldades e nelas intervir de acordo. Com o objetivo de realizar uma avaliação diagnóstica em uma perspectiva multidimensional a partir da análise minuciosa de códigos-fontes desenvolvidos por alunos e de histórico de 
-            desempenhos, este trabalho apresenta alguns instrumentos de visualização de informação para auxiliar professores no acompanhamento da aprendizagem de seus alunos na prática da programação. Os resultados de aplicação desses instrumentos em uma turma de programação a 
-            distância demonstram que é possível reconhecer sob diferentes variáveis indicadores de dificuldades de aprendizagem e diferentes classes de perfis de alunos.</p>
-        </div>
-
-      </div>
-    </section><!-- End Publications Section -->
-
-    <!-- ======= Resume Section ======= -->
-    <section id="resume" class="resume">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Experiências Profissionais</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
-
-        <div class="row"> 
-          <div class="col-lg-12">
-            <div class="resume-item">
-              <h4>Desenvolvedora de software trainee</h4>
-              <h5>Outubro 2021</h5>
-              <p><em>Grupo 3778, Florianópolis, SC</em></p>
-              <ul>
-                <li>...</li>
-                <li>...</li>
-                <li>...</li>
-              </ul>
-            </div>
-            <div class="resume-item">
-              <h4>Desenvolvedora python com foco em visão computacional</h4>
-              <h5>Abril 2020 - Março 2021</h5>
-              <p><em>MICAN, Vitória, ES </em></p>
-              <ul>
-                <li>Projeto: IOT e visão computacional de baixo custo para o varejo desenvolvendo soluções de visão computacional</li>
-                <li>Desenvolvimento utilizando opencv</li>
-                <li>Desenvovimento de API com javascritp</li>
-              </ul>
-            </div>
-            <div class="resume-item">
-              <h4>Analista Business Intelligence</h4>
-              <h5>Maio 2019 - Março 2020</h5>
-              <p><em>Laboratório de Telecomunicações (Labtel/Ufes), Vitória, ES</em></p>
-              <ul>
-                <li>Projeto: Novo site do programa Nossa Bolsa</li>
-                <li>Criação de Dashboards com Microsoft Power BI</li>
-                <li>Migração de banco de dados com Pentaho Data Integration</li>
-                <li>Desenvolvimento frontend com Angular 8</li>
-              </ul>
-            </div>
-            <div class="resume-item">
-              <h4>Estagiária</h4>
-              <h5>Junho 2017 - Abril 2019</h5>
-              <p><em>Reitoria do Instituto Federal do Espírito Santo, Vitória, ES</em></p>
-              <ul>
-                <li>Elaboração de planilhas e modelos de formulários eletrônicos</li>
-                <li>Participação de atividades relacionadas ao desenvolvimento e execução de projetos</li>
-                <li>Utilização de softwares de projetos para monitorar e controlar projetos</li>
-                <li>Participação de reuniões de planejamento de projetos diversos</li>
-              </ul>
-            </div>
-            <div class="resume-item">
-              <h4>Bolsista voluntária</h4>
-              <h5>Abril 2017 - Julho 2018</h5>
-              <p><em>Centro de Referência em Formação e em Educação à Distância (Cefor/Ifes), Vitória, ES</em></p>
-              <ul>
-                <li>Projeto: Análise da Aprendizagem de Programação por Tecnologias de Reconhecimento de Padrões</li>
-                <li>Projeto: Corte de Lovelace (iniciativa para incentivar a participação de mulheres na programação, chancelado pela Sociedade Brasileira 
-                  de Computação como parte do Meninas Digitais)</li>
-                <li>Pesquisas na área de visualização da informação e machine learning</li>
-              </ul>
-            </div>
-            <div class="resume-item">
-              <h4>Bolsista</h4>
-              <h5>Outubro 2015 - Novembro 2016</h5>
-              <p><em>Laboratório de Extensão em Desenvolvimento de Soluções (Leds/Ifes), Serra, ES</em></p>
-              <ul>
-                <li>Projeto: Lifebox: transporte e monitoramento de córnea de forma inteligente</li>
-              </ul>
-            </div>
-            <div class="resume-item">
-              <h4>Monitora</h4>
-              <h5>Outubro 2012 - Outubro 2013</h5>
-              <p><em>Escola da Ciência-Física, Vitória, ES</em></p>
-              <ul>
-                <li>Atuação como monitora no espaço de visitação do acervo</li>
-                <li>Atendimento ao público</li>
-                <li>Instrutora de robótica do Núcleo de Robótica Educacional, programa do NAAH (Núcleo de altas habilidades e super dotação),
-                  da prefeitura de Vitória</li>
-              </ul>
-            </div>
-
-
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Resume Section -->
-
-    <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio section-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Portfolio</h2>
-          <p>Em breve</p>
-        </div>
-        <!-- =======
-        <div class="row">
-          <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
-            <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-web">Web</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>App 1</h4>
-                <p>App</p>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Web 3</h4>
-                <p>Web</p>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>App 2</h4>
-                <p>App</p>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Card 2</h4>
-                <p>Card</p>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Web 2</h4>
-                <p>Web</p>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>App 3</h4>
-                <p>App</p>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Card 1</h4>
-                <p>Card</p>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Card 3</h4>
-                <p>Card</p>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Web 3</h4>
-                <p>Web</p>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>======= --><!-- End Portfolio Section -->  
-
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Contato</h2>
-        </div>
-
-        <div class="row mt-1">
-          <div class="info">
-            <div class="address">
-              <i class="bi bi-geo-alt"></i>
-              <h4>Local:</h4>
-              <p>Espírito Santo, Brasil</p>
-            </div>
-
-            <div class="email">
-              <i class="bi bi-envelope"></i>
-              <h4>Email:</h4>
-              <p>carolinesilva4@hotmail.com</p>
-            </div>
-
-            <div class="phone">
-              <i class="bi bi-phone"></i>
-              <h4>Telegram:</h4>
-              <p>@AnneCaroli</p>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Contact Section -->
-
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container">
-      <div class="social-links">
-        <a href="https://twitter.com/annecaroli_" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="https://www.facebook.com/annecarolinesil/" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="https://www.instagram.com/_annecaroli_/" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/annecaroli/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-        <a href="https://github.com/annecaroli/" class="github"><i class="bx bxl-github"></i></a>
-      </div>
-      <div class="copyright">
-        &copy; Copyright <strong><span>Anne Caroline Silva</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: [license-url] -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      <div class="card">
+        <h3>Pré-Incubação para Empreendedores</h3>
+        <span class="meta">IFES · Campus Serra · 2016</span>
+        <a class="link" href="https://onedrive.live.com/?cid=AE77A7DA2CCC6CA7&id=AE77A7DA2CCC6CA7%2125745&parId=AE77A7DA2CCC6CA7%2126238&o=OneUp" target="_blank" rel="noopener">Ver certificado ↗</a>
       </div>
     </div>
-  </footer><!-- End Footer -->
+    <a class="all-certs" href="https://1drv.ms/u/s!AqdszCzap3eugcx-LpV0pNJdatUlMg?e=ae0yCh" target="_blank" rel="noopener">→ Todos os certificados</a>
+  </div>
+</section>
 
-  <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<section id="publications">
+  <div class="wrap reveal">
+    <div class="eyebrow">Catálogo estelar</div>
+    <h2 class="section-title">Publicações <span>acadêmicas</span></h2>
+    <div class="pub-list">
+      <div class="pub">
+        <h3><a href="https://www.brazilianjournals.com/index.php/BRJD/article/view/2216" target="_blank" rel="noopener">Information Visualization Instruments for Ongoing Diagnostic Evaluation of Remote Programming (Republicação)</a></h3>
+        <span class="meta">Brazilian Journal of Development · 2019</span>
+        <details><summary>Ler resumo</summary>
+          <p>A aprendizagem de programação é um domínio de conhecimento considerado de difícil aprendizagem. Este trabalho apresenta instrumentos de visualização de informação para auxiliar professores no acompanhamento da aprendizagem de seus alunos, a partir da análise de códigos-fonte e histórico de desempenho. A aplicação em uma turma de programação a distância demonstrou ser possível reconhecer indicadores de dificuldades de aprendizagem e diferentes perfis de alunos.</p>
+        </details>
+      </div>
+      <div class="pub">
+        <h3><a href="https://www.atenaeditora.com.br/arquivos/ebooks/contradicoes-e-desafios-na-educacao-brasileira-3" target="_blank" rel="noopener">Recomendações de Ações e Tecnologias para a Acessibilidade de Surdos em Curso de Programação a Distância (Republicação)</a></h3>
+        <span class="meta">Contradições e Desafios na Educação Brasileira 3 · 2019</span>
+        <details><summary>Ler resumo</summary>
+          <p>A programação é um conhecimento complexo que demanda diversas habilidades, desafio ainda maior para estudantes surdos devido às limitações no domínio da segunda língua. O trabalho recomenda ações e tecnologias assistivas, propondo a extensão de um curso a distância a partir de vídeos assistivos produzidos no ensino presencial, além de relatar experiências de produção desses materiais.</p>
+        </details>
+      </div>
+      <div class="pub">
+        <h3><a href="https://sol.sbc.org.br/index.php/wit/article/view/3375" target="_blank" rel="noopener">O Moodle de Lovelace: Um Curso a Distância de Python Essencial, Ativo e Prático para Formação de Programadoras</a></h3>
+        <span class="meta">Women in Information Technology · 2018</span>
+        <details><summary>Ler resumo</summary>
+          <p>Muitas adolescentes e jovens enfrentam dificuldade de continuar os estudos após a maternidade. O Moodle de Lovelace é um curso a distância de Python com conteúdos essenciais, metodologias ativas e aplicações práticas, criado para oferecer formação profissional a domicílio e atrair mais mulheres para a carreira em computação.</p>
+        </details>
+      </div>
+      <div class="pub">
+        <h3><a href="https://ocs.ifes.edu.br/index.php/Vitoria_03/concefor5/paper/view/4707" target="_blank" rel="noopener">Desenvolvendo Habilidades Básicas De Programação Para Promover Acessibilidade De Surdos Em Curso de Programação A Distância</a></h3>
+        <span class="meta">Congresso Regional de Formação e Educação a Distância · 2018</span>
+        <details><summary>Ler resumo</summary>
+          <p>A aprendizagem de programação é apontada como uma das disciplinas mais complexas em computação, exigindo conhecimentos abstratos. O trabalho discute uma metodologia híbrida que considera canais de aprendizagem oral-auditivo e visual, em consonância com políticas de ações afirmativas para estudantes surdos.</p>
+        </details>
+      </div>
+      <div class="pub">
+        <h3><a href="https://br-ie.org/pub/index.php/wie/article/view/7915" target="_blank" rel="noopener">Recomendações de Ações e Tecnologias para a Acessibilidade de Surdos em Curso de Programação a Distância</a></h3>
+        <span class="meta">Workshop de Informática na Escola · 2018</span>
+        <details><summary>Ler resumo</summary>
+          <p>A programação é um conhecimento complexo, desafio ampliado para estudantes surdos pelas limitações no domínio da segunda língua. O trabalho recomenda ações e tecnologias assistivas e relata experiências de produção de vídeos assistivos para um curso de programação a distância.</p>
+        </details>
+      </div>
+      <div class="pub">
+        <h3><a href="https://www.br-ie.org/pub/index.php/wie/article/view/7263" target="_blank" rel="noopener">Instrumentos de Visualização da Informação para Avaliação Diagnóstica em Curso de Programação a Distância</a></h3>
+        <span class="meta">Workshop de Informática na Escola · 2017</span>
+        <details><summary>Ler resumo</summary>
+          <p>Este trabalho apresenta instrumentos de visualização de informação para apoiar professores no acompanhamento da aprendizagem de programação, a partir da análise de códigos-fonte e histórico de desempenho, permitindo reconhecer indicadores de dificuldade e perfis distintos de alunos.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/purecounter/purecounter.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+<section id="resume">
+  <div class="wrap reveal">
+    <div class="eyebrow">Trajetória</div>
+    <h2 class="section-title">Experiências <span>profissionais</span></h2>
+    <p class="timeline-intro">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-date">Outubro 2021 — atual</span>
+        <h3>Desenvolvedora de software trainee</h3>
+        <span class="place">Grupo 3778 · Florianópolis, SC</span>
+        <ul><li>…</li><li>…</li><li>…</li></ul>
+      </div>
+      <div class="tl-item">
+        <span class="tl-date">Abril 2020 – Março 2021</span>
+        <h3>Desenvolvedora Python com foco em visão computacional</h3>
+        <span class="place">MICAN · Vitória, ES</span>
+        <ul>
+          <li>Projeto: IoT e visão computacional de baixo custo para o varejo, desenvolvendo soluções de visão computacional</li>
+          <li>Desenvolvimento utilizando OpenCV</li>
+          <li>Desenvolvimento de API com JavaScript</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <span class="tl-date">Maio 2019 – Março 2020</span>
+        <h3>Analista Business Intelligence</h3>
+        <span class="place">Laboratório de Telecomunicações (Labtel/Ufes) · Vitória, ES</span>
+        <ul>
+          <li>Projeto: novo site do programa Nossa Bolsa</li>
+          <li>Criação de dashboards com Microsoft Power BI</li>
+          <li>Migração de banco de dados com Pentaho Data Integration</li>
+          <li>Desenvolvimento frontend com Angular 8</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <span class="tl-date">Junho 2017 – Abril 2019</span>
+        <h3>Estagiária</h3>
+        <span class="place">Reitoria do Instituto Federal do Espírito Santo · Vitória, ES</span>
+        <ul>
+          <li>Elaboração de planilhas e modelos de formulários eletrônicos</li>
+          <li>Participação em atividades relacionadas ao desenvolvimento e execução de projetos</li>
+          <li>Utilização de softwares de projetos para monitorar e controlar projetos</li>
+          <li>Participação em reuniões de planejamento de projetos diversos</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <span class="tl-date">Abril 2017 – Julho 2018</span>
+        <h3>Bolsista voluntária</h3>
+        <span class="place">Centro de Referência em Formação e em Educação à Distância (Cefor/Ifes) · Vitória, ES</span>
+        <ul>
+          <li>Projeto: Análise da Aprendizagem de Programação por Tecnologias de Reconhecimento de Padrões</li>
+          <li>Projeto: Corte de Lovelace — iniciativa para incentivar a participação de mulheres na programação, chancelada pela Sociedade Brasileira de Computação como parte do Meninas Digitais</li>
+          <li>Pesquisas na área de visualização da informação e machine learning</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <span class="tl-date">Outubro 2015 – Novembro 2016</span>
+        <h3>Bolsista</h3>
+        <span class="place">Laboratório de Extensão em Desenvolvimento de Soluções (Leds/Ifes) · Serra, ES</span>
+        <ul><li>Projeto: Lifebox — transporte e monitoramento de córnea de forma inteligente</li></ul>
+      </div>
+      <div class="tl-item">
+        <span class="tl-date">Outubro 2012 – Outubro 2013</span>
+        <h3>Monitora</h3>
+        <span class="place">Escola da Ciência-Física · Vitória, ES</span>
+        <ul>
+          <li>Atuação como monitora no espaço de visitação do acervo</li>
+          <li>Atendimento ao público</li>
+          <li>Instrutora de robótica do Núcleo de Robótica Educacional, programa do NAAH, da prefeitura de Vitória</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+<section id="portfolio">
+  <div class="wrap reveal">
+    <div class="eyebrow">Portfolio</div>
+    <h2 class="section-title">Projetos em <span>trânsito</span></h2>
+    <div class="radar"></div>
+    <p>sinal em construção — em breve.</p>
+  </div>
+</section>
 
+<section id="contact">
+  <div class="wrap reveal">
+    <div class="eyebrow">Contato</div>
+    <h2 class="section-title">Vamos <span>nos conectar</span></h2>
+    <div class="contact-panel">
+      <div class="contact-item"><span class="label">Local</span><span class="value">Espírito Santo, Brasil</span></div>
+      <div class="contact-item"><span class="label">Email</span><span class="value"><a href="mailto:carolinesilva4@hotmail.com">carolinesilva4@hotmail.com</a></span></div>
+      <div class="contact-item"><span class="label">Telegram</span><span class="value">@AnneCaroli</span></div>
+    </div>
+    <div class="social-row" style="justify-content:flex-start;">
+      <a href="https://twitter.com/annecaroli_" target="_blank" rel="noopener" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+      <a href="https://www.facebook.com/annecarolinesil/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/_annecaroli_/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/annecaroli/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="https://github.com/annecaroli/" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    © <span id="year"></span> Anne Caroline Silva. Todos os direitos reservados.
+  </div>
+</footer>
+
+<script>
+// ---------- Nav toggle ----------
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', open);
+});
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  navLinks.classList.remove('open');
+  navToggle.setAttribute('aria-expanded', false);
+}));
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// ---------- Scroll reveal ----------
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const revealEls = document.querySelectorAll('.reveal');
+if (reduceMotion) {
+  revealEls.forEach(el => el.classList.add('visible'));
+} else {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+}
+
+// ---------- Skill bars ----------
+const skillFills = document.querySelectorAll('.skill-fill');
+const skillIO = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      el.style.width = el.dataset.pct + '%';
+      skillIO.unobserve(el);
+    }
+  });
+}, { threshold: 0.4 });
+skillFills.forEach(el => skillIO.observe(el));
+
+// ---------- Starfield + constellation cursor ----------
+(function(){
+  const canvas = document.getElementById('starfield');
+  const ctx = canvas.getContext('2d');
+  const hero = document.getElementById('hero');
+  let w, h, stars = [];
+  const STAR_COUNT = 130;
+  const LINK_DIST = 130;
+  const MOUSE_DIST = 160;
+  let mouse = { x: -9999, y: -9999 };
+
+  function resize(){
+    w = canvas.width = hero.offsetWidth;
+    h = canvas.height = hero.offsetHeight;
+    stars = [];
+    for (let i = 0; i < STAR_COUNT; i++) {
+      stars.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: Math.random() * 1.4 + 0.4,
+        vx: (Math.random() - 0.5) * 0.06,
+        vy: (Math.random() - 0.5) * 0.06,
+        tw: Math.random() * Math.PI * 2
+      });
+    }
+  }
+
+  function draw(){
+    ctx.clearRect(0, 0, w, h);
+
+    // ambient nearest-neighbor constellation lines
+    ctx.lineWidth = 1;
+    for (let i = 0; i < stars.length; i++) {
+      for (let j = i + 1; j < stars.length; j++) {
+        const dx = stars[i].x - stars[j].x;
+        const dy = stars[i].y - stars[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < LINK_DIST) {
+          const op = (1 - dist / LINK_DIST) * 0.12;
+          ctx.strokeStyle = `rgba(77,238,234,${op})`;
+          ctx.beginPath();
+          ctx.moveTo(stars[i].x, stars[i].y);
+          ctx.lineTo(stars[j].x, stars[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    // cursor-reactive glowing links
+    stars.forEach(s => {
+      const dx = s.x - mouse.x;
+      const dy = s.y - mouse.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < MOUSE_DIST) {
+        const op = (1 - dist / MOUSE_DIST) * 0.85;
+        ctx.strokeStyle = `rgba(249,42,173,${op})`;
+        ctx.lineWidth = 1.2;
+        ctx.beginPath();
+        ctx.moveTo(mouse.x, mouse.y);
+        ctx.lineTo(s.x, s.y);
+        ctx.stroke();
+      }
+    });
+
+    // stars themselves, twinkling
+    stars.forEach(s => {
+      s.tw += 0.02;
+      const alpha = 0.5 + Math.sin(s.tw) * 0.5;
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(238,241,255,${0.35 + alpha * 0.65})`;
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fill();
+
+      s.x += s.vx; s.y += s.vy;
+      if (s.x < 0) s.x = w; if (s.x > w) s.x = 0;
+      if (s.y < 0) s.y = h; if (s.y > h) s.y = 0;
+    });
+  }
+
+  let raf;
+  function loop(){
+    draw();
+    raf = requestAnimationFrame(loop);
+  }
+
+  window.addEventListener('resize', resize);
+  hero.addEventListener('mousemove', (e) => {
+    const rect = hero.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  });
+  hero.addEventListener('mouseleave', () => { mouse.x = -9999; mouse.y = -9999; });
+
+  resize();
+  if (reduceMotion) {
+    draw();
+  } else {
+    loop();
+  }
+})();
+</script>
 </body>
-
 </html>
