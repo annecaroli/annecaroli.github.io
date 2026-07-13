@@ -318,6 +318,11 @@
   /* ---------- INTERESTS ---------- */
   .constellation{
     display:flex; flex-wrap:wrap; gap:14px;
+    justify-content:center;
+  }
+
+  #skills .constellation{
+    justify-content:center;
   }
   .node{
     display:flex; align-items:center; gap:8px;
@@ -484,6 +489,13 @@
     display:block; margin-bottom:8px;
   }
   .contact-item .value{color:var(--star); font-size:.95rem;}
+  .contact-item iframe{
+    width:100%;
+    min-height:220px;
+    margin-top:10px;
+    border:0;
+    border-radius:8px;
+  }
   @media (max-width:700px){.contact-panel{grid-template-columns:1fr;}}
 
   footer{
@@ -506,7 +518,7 @@
 
 <header>
   <nav class="wrap">
-    <div class="brand">annecaroli<em>.</em>dev</div>
+    <div class="brand"><em>>_</em>annecaroli</div>
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#hero">Home</a></li>
@@ -545,13 +557,21 @@
     <div class="about-bio reveal">
       <div class="eyebrow">Sobre</div>
       <h2 class="section-title">Graduada em <span>Sistemas de Informação</span></h2>
-      <p>Desenvolvedora Web e entusiasta em visão computacional.</p>
+      <p>Desenvolvedora Web e entusiasta em visão computacional, experiente na entrega de funcionalidades
+         que otimizam processos de negócio, melhoria da qualidade
+         técnica e alavancagem de projetos inovadores</p>
       <p>Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis. Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque. Aliquid amet quidem ut quaerat cupiditate. Ab et eum qui repellendus omnis culpa magni laudantium dolores.</p>
       <div class="telemetry">
         <div><span>Instituição</span><span>IFES - Serra</span></div>
         <div><span>Grau</span><span>Bacharelado</span></div>
         <div><span>Aniversário</span><span>02/12/1992</span></div>
         <div><span>Naturalidade</span><span>Vitória, ES</span></div>
+        <div><span>Experiência</span><span>+<span id="yearsOfExperience"></span> anos</span></div>
+        <div><span>Nível</span><span>Pleno</span></div>
+        <div><span>Freelancer</span><span>Sim</span></div>
+        <div><span>Disponibilidade</span><span>Imediata</span></div>
+        <div><span>Idiomas</span><span>Inglês, Chinês</span></div>
+        <div><span>Objetivo</span><span>NASA</span></div>
       </div>
     </div>
   </div>
@@ -563,13 +583,14 @@
     <h2 class="section-title">O que orbita minha <span>curiosidade</span></h2>
     <div class="constellation">
       <span class="node">Futurismo</span>
+      <span class="node">Lifelong Learning</span>
       <span class="node">Empreendedorismo</span>
       <span class="node">Desenvolvimento Web</span>
-      <span class="node">Inteligência emocional</span>
+      <span class="node">Inteligência Emocional</span>
       <span class="node">Interação Humano-Máquina</span>
-      <span class="node">Resolução de problemas</span>
+      <span class="node">Resolução de Problemas</span>
       <span class="node">Física e Cosmologia</span>
-      <span class="node">Divulgação científica</span>
+      <span class="node">Divulgação Científica</span>
       <span class="node">Literatura</span>
       <span class="node">Neurociência</span>
       <span class="node">Tecnologia</span>
@@ -652,9 +673,8 @@
       <span class="node">Raspberry Pi</span>
       <span class="node">Gemini</span>
       <span class="node">Cloude</span>
-      <span class="node">Metodologias de Desenvolvimento de Software</span>
+      <span class="node">Copilot</span>
       <span class="node">Modelagem de Dados</span>
-      <span class="node">Metodologias de Desenvolvimento</span>
       <span class="node">Metodologias Ágeis</span>
       <span class="node">Scrum</span>
       <span class="node">Gestão da TI</span>
@@ -663,10 +683,12 @@
       <span class="node">Planejamento Estratégico</span>
       <span class="node">Human Centered Design</span>
       <span class="node">Design Thinking</span>
+      <span class="node">Design Sprint</span>
       <span class="node">User Experience</span>
       <span class="node">User Interface</span>
-      <span class="node">UX/UI</span>
       <span class="node">Business Model Canvas</span>
+      <span class="node">Project Model Canvas</span>
+      <span class="node">Value Proposition Canvas</span>
       <span class="node">Pesquisa Científica</span>
       <span class="node">Ensino de programação</span>
       <span class="node">Tutoria de cursos MOOC</span>
@@ -838,9 +860,45 @@
     <div class="eyebrow">Contato</div>
     <h2 class="section-title">Vamos <span>nos conectar</span></h2>
     <div class="contact-panel">
-      <div class="contact-item"><span class="label">Local</span><span class="value">Espírito Santo, Brasil</span></div>
-      <div class="contact-item"><span class="label">Email</span><span class="value"><a href="mailto:carolinesilva4@hotmail.com">carolinesilva4@hotmail.com</a></span></div>
-      <div class="contact-item"><span class="label">Telegram</span><span class="value">@AnneCaroli</span></div>
+      <div class="contact-item">
+        <span class="label">Para uma conversa presencial</span>
+        <span class="value">Shopping Vitória · Vitória, ES</span>
+        <iframe
+          src="https://www.google.com/maps?q=Shopping%20Vit%C3%B3ria%20Pinado%20Vit%C3%B3ria%20ES&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="contact-item">
+        <span class="label">Para uma aproximação profissional</span>
+        <br>
+        <span class="value">
+          <!-- Google Calendar Appointment Scheduling begin -->
+          <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+          <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+          <script>
+          (function() {
+            var target = document.currentScript;
+            window.addEventListener('load', function() {
+              calendar.schedulingButton.load({
+                url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ20nhhwiQwMc9xwfMvDAQstSPLYIxSKVj25QYV4e7TpRDs64eMVimd5HvtXm0xN1dvnRLRXMZ4a?gv=true',
+                color: '#039BE5',
+                label: 'Agendar um compromisso',
+                target,
+              });
+            });
+          })();
+          </script>
+          <!-- end Google Calendar Appointment Scheduling -->
+        </span>
+      </div>
+      <div class="contact-item">
+        <span class="label">Para uma conexão informal</span>
+        <span class="value">
+          <!-- Comentário -->''
+        </span>
+      </div>
     </div>
     <div class="social-row" style="justify-content:flex-start;">
       <a href="https://twitter.com/annecaroli_" target="_blank" rel="noopener" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
@@ -872,6 +930,7 @@ navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
 }));
 
 document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('yearsOfExperience').textContent = new Date().getFullYear() - 2021;
 
 // ---------- Scroll reveal ----------
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
